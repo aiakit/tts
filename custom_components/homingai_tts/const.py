@@ -1,6 +1,6 @@
-DOMAIN = "x_tts"
+DOMAIN = "homingai_tts"
 CONF_ADDR = "addr"
-DEFAULT_NAME = "X TTS"
+DEFAULT_NAME = "HomingAI TTS"
 PLATFORMS = ["tts"]
 SUPPORTED_LANGUAGES = [
     'zh',

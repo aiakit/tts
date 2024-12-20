@@ -1,10 +1,10 @@
-"""The X TTS integration."""
+"""The HomingAI TTS integration."""
 from __future__ import annotations
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from .const import DOMAIN, PLATFORMS
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up X TTS from a config entry."""
+    """Set up HomingAI TTS from a config entry."""
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = entry.data
 

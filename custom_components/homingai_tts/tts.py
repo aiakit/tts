@@ -1,4 +1,4 @@
-"""Support for X TTS."""
+"""Support for HomingAI TTS."""
 from __future__ import annotations
 import logging
 import asyncio
@@ -22,16 +22,16 @@ async def async_setup_entry(
         config_entry: ConfigEntry,
         async_add_devices: AddEntitiesCallback,
 ) -> None:
-    """Set up X TTS entry."""
-    _LOGGER.debug("Setting up X TTS platform")
+    """Set up HomingAI TTS entry."""
+    _LOGGER.debug("Setting up HomingAI TTS platform")
     engine = XTTSProvider(hass, config_entry)
     async_add_devices([engine])
 class XTTSProvider(TextToSpeechEntity,Provider):
-    """The X TTS speech API provider."""
+    """The HomingAI TTS speech API provider."""
     def __init__(self, hass: HomeAssistant, config_entry: ConfigEntry) -> None:
-        """Initialize X TTS speech component."""
+        """Initialize HomingAI TTS speech component."""
         self.hass = hass
-        self._attr_name = "X TTS"
+        self._attr_name = "HomingAI TTS"
         self._attr_unique_id = f"{config_entry.entry_id}"
         self._addr = config_entry.data[CONF_ADDR]
         self._language = "zh"

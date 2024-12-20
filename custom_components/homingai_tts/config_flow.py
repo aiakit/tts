@@ -1,4 +1,4 @@
-"""Config flow for X TTS."""
+"""Config flow for HomingAI TTS."""
 from __future__ import annotations
 import logging
 from typing import Any
@@ -15,7 +15,7 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
     }
 )
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for X TTS."""
+    """Handle a config flow for HomingAI TTS."""
     VERSION = 1
     async def async_step_user(
             self, user_input: dict[str, Any] | None = None
