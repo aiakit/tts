@@ -1,9 +1,7 @@
 DOMAIN = "x_tts"
+CONF_ADDR = "addr"
 DEFAULT_NAME = "X TTS"
-
-# config
-CONF_ADDR = 'addr'
-
+PLATFORMS = ["tts"]
 SUPPORTED_LANGUAGES = [
     'zh',
     'cte',

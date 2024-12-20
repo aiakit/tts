@@ -1,11 +1,15 @@
 {
   "domain": "x_tts",
   "name": "X TTS",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "documentation": "https://github.com/aiakit/tts",
   "issue_tracker": "https://github.com/aiakit/tts/issues",
   "requirements": [],
   "codeowners": [],
   "iot_class": "cloud_push",
-  "config_flow": true
+  "config_flow": true,
+  "dependencies": [
+    "http",
+    "tts"
+  ]
 }
