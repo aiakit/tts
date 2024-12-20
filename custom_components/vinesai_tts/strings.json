@@ -1,0 +1,19 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up addr",
+        "description": "sddd",
+        "data": {
+          "addr": "addr"
+        }
+      }
+    },
+    "error": {
+      "unknown": "error"
+    },
+    "abort":{
+      "already_configured": "ss"
+    }
+  }
+}

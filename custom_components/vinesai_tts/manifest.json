@@ -6,5 +6,6 @@
   "issue_tracker": "https://github.com/aiakit/tts/issues",
   "requirements": [],
   "codeowners": [],
-  "iot_class": "cloud_push"
+  "iot_class": "cloud_push",
+  "config_flow": true
 }

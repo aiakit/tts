@@ -8,25 +8,13 @@ import voluptuous as vol
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.components.tts import CONF_LANG, PLATFORM_SCHEMA, Provider
+from .const import (
+    CONF_ADDR,
+    SUPPORTED_LANGUAGES,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORTED_LANGUAGES = [
-    'zh',
-    'cte',
-    'en',
-    'ara',
-    'de',
-    'fra',
-    'jp',
-    'kor',
-    'pt',
-    'ru',
-    'spa',
-    'th',
-]
-
-CONF_ADDR  = 'addr'
 DEFAULT_LANG = 'zh'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
