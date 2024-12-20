@@ -2,15 +2,16 @@
   "config": {
     "step": {
       "user": {
-        "title": "设置 ADDR",
-        "description": "请输入您的 ADDR",
+        "title": "设置 http addr",
+        "description": "请输入您的 http addr",
         "data": {
-          "addr": "地址"
+          "addr": "请输入您的 http addr"
         }
       }
     },
     "error": {
-      "unknown": "发生意外错误"
+      "unknown": "发生意外错误",
+      "invalid_url_protocol" : "请输入正确的 http addr"
     },
     "abort": {
       "already_configured": "账户已配置"

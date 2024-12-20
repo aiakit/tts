@@ -2,6 +2,8 @@
 from __future__ import annotations
 import logging
 import asyncio
+import json
+import base64
 from typing import Any
 import aiohttp
 from homeassistant.components.tts import (
@@ -63,9 +65,8 @@ class XTTSProvider(TextToSpeechEntity,Provider):
         if options is None:
             options = {}
         try:
-            url = f"{self._addr}/tts"
-            _LOGGER.debug("Requesting TTS from %s with message: %s", url, message)
-
+            url = f"{self._addr}"
+            _LOGGER.error("去请求 .....Requesting TTS from %s with message: %s", url, message)
             async with aiohttp.ClientSession() as session:
                 async with session.post(
                         url,
@@ -81,8 +82,11 @@ class XTTSProvider(TextToSpeechEntity,Provider):
                         return None, None
 
                     data = await response.read()
-                    _LOGGER.debug("Successfully got TTS audio")
-                    return "mp3", data
+                    jsdata = json.loads(bytearray(data))
+                    if(jsdata['code'] != 200):
+                        _LOGGER.error("resp data :%s",jsdata['msg'])
+                        return None,None
+                    return "mp3",base64.b64decode(jsdata['body'])  # base64 to bytes
         except asyncio.TimeoutError:
             _LOGGER.error("Timeout requesting TTS")
             return None, None

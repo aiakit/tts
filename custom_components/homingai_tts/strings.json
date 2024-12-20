@@ -10,10 +10,11 @@
       }
     },
     "error": {
-      "unknown": "error"
+      "unknown": "error",
+      "invalid_url_protocol":"invalid_url_protocol"
     },
     "abort":{
-      "already_configured": "ss"
+      "already_configured": "already_configured"
     }
   }
 }
