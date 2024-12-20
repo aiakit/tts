@@ -86,7 +86,13 @@ class XTTSProvider(TextToSpeechEntity,Provider):
                     if(jsdata['code'] != 200):
                         _LOGGER.error("resp data :%s",jsdata['msg'])
                         return None,None
-                    return "mp3",base64.b64decode(jsdata['body'])  # base64 to bytes
+                    
+                    # 确保音频数据正确
+                    audio_data = base64.b64decode(jsdata['body'])
+                    _LOGGER.debug("Audio data length: %d bytes", len(audio_data))
+                    
+                    # 明确指定返回的音频格式为 MP3
+                    return ("wav", audio_data)  # 使用元组形式返回
         except asyncio.TimeoutError:
             _LOGGER.error("Timeout requesting TTS")
             return None, None
