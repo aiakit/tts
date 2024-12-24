@@ -1,7 +1,7 @@
 {
   "domain": "homingai_tts",
   "name": "HomingAI TTS",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "documentation": "https://github.com/aiakit/tts",
   "issue_tracker": "https://github.com/aiakit/tts/issues",
   "requirements": [],
