@@ -2,19 +2,16 @@
   "config": {
     "step": {
       "user": {
-        "title": "设置 http addr",
-        "description": "请输入您的 http addr",
-        "data": {
-          "addr": "请输入您的 http addr"
-        }
+        "description": "{risks}",
+        "title": "HomingAI Chat"
       }
     },
     "error": {
-      "unknown": "发生意外错误",
-      "invalid_url_protocol" : "请输入正确的 http addr"
+      "auth_error": "获取授权码失败，请确认是否在HomingAI官网授权成功",
+      "auth_verify_failed": "授权验证失败，请重试"
     },
     "abort": {
-      "already_configured": "账户已配置"
+      "already_configured": "此账号已经配置过了"
     }
   }
 }

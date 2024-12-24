@@ -61,25 +61,14 @@ class XTTSProvider(TextToSpeechEntity,Provider):
     async def async_get_tts_audio(
             self, message: str, language: str, options: dict[str, Any] | None = None
     ) -> TtsAudioType:
-        """Load TTS from X."""
-        if options is None:
-            options = {}
+        """Load TTS """
         try:
-            url = f"{self._addr}"
-            _LOGGER.error("去请求 .....Requesting TTS from %s with message: %s", url, message)
             async with aiohttp.ClientSession() as session:
                 async with session.post(
-                        url,
+                        "https://api.homingai.com/ha/home/tts",
                         json={"text": message},
                         timeout=10
                 ) as response:
-                    if response.status != 200:
-                        _LOGGER.error(
-                            "Error %d on load URL %s",
-                            response.status,
-                            url
-                        )
-                        return None, None
 
                     data = await response.read()
                     jsdata = json.loads(bytearray(data))
