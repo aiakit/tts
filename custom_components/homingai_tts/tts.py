@@ -7,17 +7,14 @@ import base64
 from typing import Any
 import aiohttp
 from homeassistant.components.tts import (
-    CONF_LANG,
     Provider,
     TtsAudioType,
     TextToSpeechEntity,
-    DOMAIN as TTS_DOMAIN,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
-from homeassistant.components.tts import ATTR_VOICE
-from .const import DOMAIN, CONF_ADDR
+
 _LOGGER = logging.getLogger(__name__)
 async def async_setup_entry(
         hass: HomeAssistant,
