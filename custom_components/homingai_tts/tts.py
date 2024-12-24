@@ -39,7 +39,6 @@ class XTTSProvider(TextToSpeechEntity, Provider):
         self.hass = hass
         self._attr_name = "HomingAI TTS"
         self._attr_unique_id = f"{config_entry.entry_id}"
-        self._addr = config_entry.data[CONF_ADDR]
         self._language = "zh"
         self.access_token = entry.data.get('access_token', '')
 
