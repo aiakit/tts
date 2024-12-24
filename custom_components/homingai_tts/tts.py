@@ -40,7 +40,7 @@ class XTTSProvider(TextToSpeechEntity, Provider):
         self._attr_name = "HomingAI TTS"
         self._attr_unique_id = f"{config_entry.entry_id}"
         self._language = "zh"
-        self.access_token = entry.data.get('access_token', '')
+        self.access_token = config_entry.data.get('access_token', '')
 
     @property
     def supported_languages(self):
