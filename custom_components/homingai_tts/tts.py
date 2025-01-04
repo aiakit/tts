@@ -71,7 +71,6 @@ class XTTSProvider(TextToSpeechEntity, Provider):
     ) -> TtsAudioType:
         """Load TTS """
         try:
-
             headers = {"Authorization": f"Bearer {self.access_token}"}
 
             async with aiohttp.ClientSession() as session:
@@ -81,18 +80,23 @@ class XTTSProvider(TextToSpeechEntity, Provider):
                         json={"text": message},
                         timeout=10
                 ) as response:
-                    data = await response.read()
-                    jsdata = json.loads(bytearray(data))
-                    if (jsdata['code'] != 200):
-                        _LOGGER.error("resp data :%s", jsdata['msg'])
+                    if response.status != 200:
+                        _LOGGER.error("HTTP error %d: %s", response.status, await response.text())
                         return None, None
 
-                    # 确保音频数据正确
+                    data = await response.read()
+                    jsdata = json.loads(data)
+                    if jsdata['code'] != 200:
+                        _LOGGER.error("API error: %s", jsdata['msg'])
+                        return None, None
+
+                    # Decode audio data
                     audio_data = base64.b64decode(jsdata['body'])
                     _LOGGER.debug("Audio data length: %d bytes", len(audio_data))
 
-                    # 明确指定返回的音频格式为 MP3
-                    return ("wav", audio_data)  # 使用元组形式返回
+                    # Return MP3 format directly to avoid conversion issues
+                    return ("mp3", audio_data)
+
         except asyncio.TimeoutError:
             _LOGGER.error("Timeout requesting TTS")
             return None, None
