@@ -75,7 +75,7 @@ class XTTSProvider(TextToSpeechEntity, Provider):
 
             async with aiohttp.ClientSession() as session:
                 async with session.post(
-                        "https://api.homingai.com/ha/home/tts",
+                        "https://api.homingai.com/ha/home/tts4homeassistant",
                         headers=headers,
                         json={"text": message},
                         timeout=10
